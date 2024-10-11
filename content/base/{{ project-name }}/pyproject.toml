@@ -1,0 +1,28 @@
+[project]
+name = "{{ project-name}}"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Archetect", email = "archetect@github.io" },
+]
+dependencies = [
+    "logging>=0.4.9.6",{% if "gRPC" in features %}
+    "grpcio>=1.59.0",
+    "grpcio-tools>=1.59.0",{% endif %}{% if "Neo4j" in features %}
+    "neo4j>=5.13.0",{% endif %}{% if "AWS" in features %}
+    "boto3>=1.28.63",{% endif %}{% if "PyTorch" in features %}
+    "torch>=2.1.0",{% endif %}
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = { text = "p6m" }
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.scripts]
+server = { call = "{{ project_name }}_server.server:start" }
+
+[tool.pdm.dev-dependencies]
+test = ["pytest"]

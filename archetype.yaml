@@ -1,0 +1,9 @@
+---
+description: "Python gRPC Service Archetype"
+authors: ["Jimmie Fulton"]
+languages: ["Python"]
+frameworks: ["grpcio", "grpcio-tools"]
+tags: ["Service"]
+
+requires:
+  archetect: 2.0.0-ALPHA.8
